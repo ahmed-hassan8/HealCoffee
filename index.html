@@ -52,9 +52,17 @@
 
 <!-- Main Page -->
 <div id="mainPage" class="container mx-auto p-4" style="display: none;">
+    <!-- Logout Button -->
+    <div class="flex justify-end mb-4">
+        <button onclick="logout()" class="btn btn-danger">
+            <i class="fas fa-sign-out-alt mr-2"></i>Logout
+        </button>
+    </div>
+
+    <!-- Tabs -->
     <div class="flex gap-4 mb-6">
-        <button onclick="switchTab('purchaseTab')" class="btn btn-primary">Purchase Order</button>
-        <button onclick="switchTab('sweetOrderTab')" class="btn btn-primary">Sweet Order</button>
+        <button id="purchaseTabButton" class="btn btn-primary">Purchase Order</button>
+        <button id="sweetOrderTabButton" class="btn btn-primary">Sweet Order</button>
     </div>
 
     <!-- Purchase Order Tab -->
@@ -87,7 +95,7 @@
             </button>
         </div>
 
-        <!-- New Beverage Section -->
+        <!-- Beverage Section -->
         <div class="order-section">
             <h2 class="section-title noto-naskh-arabic">Beverage</h2>
             <div id="beverageItems" class="selected-items"></div>
