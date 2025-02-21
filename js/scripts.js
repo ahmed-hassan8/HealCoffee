@@ -112,41 +112,106 @@ const selectedItems = {
     consumable: {},
     beverage: {}
 };
-
 // Selected sweet items storage
 const selectedSweetItems = {};
 
+// Updated login function to use role-based access
 function login() {
-    const username = document.getElementById('username').value;
+    const email = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    // Validate username and password
-    if (username === '') {
-        alert('Please enter a username.');
+    const users = {
+        'a7e988@gmail.com': { role: 'admin', pass: '1234' },
+        'a7e989@gmail.com': { role: 'purchase', pass: '1234' },
+        'a7a988@gmail.com': { role: 'sweet', pass: '1234' }
+    };
+
+    if (!users[email] || users[email].pass !== password) {
+        alert('Incorrect email or password.');
         return;
     }
 
-    if (password === '') {
-        alert('Please enter a password.');
-        return;
-    }
-
-    // Check if the password is correct
-    if (password !== 'Heal2025') {
-        alert('Incorrect password. Please try again.');
-        return;
-    }
-
-    // Automatically set the branch to "Heal"
-    document.getElementById('branch').value = 'Heal';
-
-    // Hide the login page and show the main page
     document.getElementById('loginPage').style.display = 'none';
     document.getElementById('mainPage').style.display = 'block';
 
-    // Update branch information
-    updateBranchInformation();
+    // Hide all sections initially
+    const sections = {
+        purchase: document.getElementById('purchaseTab'),
+        sweet: document.getElementById('sweetOrderTab')
+    };
+
+    Object.values(sections).forEach(section => section.style.display = 'none');
+
+    // Assign correct sections to the user role
+    const role = users[email].role;
+    if (role === 'admin') {
+        // Admin can access both tabs, but only show one at a time
+        sections.purchase.style.display = 'block'; // Default to Purchase Order tab
+        sections.sweet.style.display = 'none'; // Hide Sweet Order tab initially
+    } else if (role === 'purchase') {
+        sections.purchase.style.display = 'block'; // Show Purchase Order tab
+        sections.sweet.style.display = 'none'; // Hide Sweet Order tab
+    } else if (role === 'sweet') {
+        sections.purchase.style.display = 'none'; // Hide Purchase Order tab
+        sections.sweet.style.display = 'block'; // Show Sweet Order tab
+    }
+
+    // Tab switching logic
+    function switchTab(activeTab) {
+        Object.entries(sections).forEach(([key, section]) => {
+            section.style.display = key === activeTab ? 'block' : 'none';
+        });
+    }
+
+    // Add event listeners for tab switching (only for admin)
+    if (role === 'admin') {
+        document.getElementById('purchaseTabButton').addEventListener('click', () => switchTab('purchase'));
+        document.getElementById('sweetOrderTabButton').addEventListener('click', () => switchTab('sweet'));
+    }
+
+    // Set default tab based on role
+    if (role !== 'admin') {
+        switchTab(role);
+    }
 }
+
+// Logout function with optional enhancements
+function logout() {
+    if (confirm('Are you sure you want to log out?')) {
+        // Hide the main page and show the login page
+        document.getElementById('mainPage').style.display = 'none';
+        document.getElementById('loginPage').style.display = 'block';
+
+        // Clear any selected items
+        clearSelectedItems();
+
+        // Reset the form fields
+        document.getElementById('username').value = '';
+        document.getElementById('password').value = '';
+        document.getElementById('branch').value = '';
+
+        // Optional: Clear session storage or cookies
+        sessionStorage.clear(); // Clear session storage
+        document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'; // Clear cookies
+    }
+}
+
+// Clear selected items
+function clearSelectedItems() {
+    // Clear selected items for all categories
+    for (const category in selectedItems) {
+        selectedItems[category] = {};
+    }
+    // Clear selected sweet items
+    for (const item in selectedSweetItems) {
+        delete selectedSweetItems[item];
+    }
+    // Update the display to reflect the cleared items
+    updateDisplay();
+}
+
+
+    
 
 function updateBranchInformation() {
     document.getElementById('branch-information').innerText = `Branch: Heal`;
