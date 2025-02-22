@@ -413,13 +413,24 @@ function generatePDF() {
                 if (index % 2 === 0) {
                     row.style.backgroundColor = '#D2D2D0'; // Light gray for even rows
                 }
-                ['name', 'unit', 'quantity'].forEach(field => {
+
+                // Wrap Arabic text in a span with dir="rtl"
+                const arabicName = `<span dir="rtl">${item.name}</span>`;
+
+                // Add the Arabic name to the table cell
+                const nameCell = document.createElement('td');
+                nameCell.innerHTML = arabicName; // Use innerHTML to render the span
+                row.appendChild(nameCell);
+
+                // Add unit and quantity cells
+                ['unit', 'quantity'].forEach(field => {
                     const td = document.createElement('td');
                     td.style.border = '1px solid #000';
                     td.style.padding = '8px';
                     td.innerText = item[field];
                     row.appendChild(td);
                 });
+
                 table.appendChild(row);
             });
         }
@@ -465,6 +476,11 @@ function generatePDF() {
         // Hide the printable area after PDF generation
         printableOrder.style.display = 'none';
     });
+}
+
+// Sweet order functions (unchanged)
+function showSweetOrderItems() {
+    // ... (your existing showSweetOrderItems function)
 }
 
 function showSweetOrderItems() {
