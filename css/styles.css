@@ -5,6 +5,15 @@
     --neutral: #D2D2D0; /* Light gray */
 }
 
+/* Add this new rule at the end of the file or near other PDF-related styles */
+#printableOrder, #printableSweetOrder {
+    font-family: 'Noto Naskh Arabic', serif;
+}
+
+#printableOrder td, #printableSweetOrder td {
+    text-align: center; /* Center-align text in table cells */
+}
+
 .login-container {
     max-width: 400px;
     margin: 50px auto;
