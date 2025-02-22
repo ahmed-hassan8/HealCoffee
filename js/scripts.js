@@ -67,20 +67,19 @@ const inventoryItems = {
         ]
     };
 
-
     const sweetInventory = {
         'Heal': {
             'Honey cake - كيكة العسل': {
                 'Friday': 6, 'Saturday': 7, 'Sunday': 5, 'Monday': 5, 'Tuesday': 8, 'Wednesday': 7, 'Thursday': 3, 'imageUrl': 'images/honey_cake.jpg'
             },
             'Heal cake - كيكة هيل': {
-                'Friday': 5, 'Saturday': 6, 'Sunday': 4, 'Monday': 4, 'Tuesday': 7, 'Wednesday': 6, 'Thursday': 2, 'imageUrl': 'images/heal_cake.jpg'
+                'Friday': 5, 'Saturday': 6, 'Sunday': 4, 'Monday': 4, 'Tuesday': 7, 'Wednesday': 6, 'Thursday': 2, 'imageUrl': 'images/heal_cake.jpg', dozen: true
             },
             'Tiramisu - تيراميسو': {
-                'Friday': 4, 'Saturday': 5, 'Sunday': 3, 'Monday': 3, 'Tuesday': 6, 'Wednesday': 5, 'Thursday': 1, 'imageUrl': 'images/tiramisu.jpg'
+                'Friday': 4, 'Saturday': 5, 'Sunday': 3, 'Monday': 3, 'Tuesday': 6, 'Wednesday': 5, 'Thursday': 1, 'imageUrl': 'images/tiramisu.jpg', dozen: true
             },
             'Mango cheesecake pudding - بودينغ تشيز كيك المانجو': {
-                'Friday': 7, 'Saturday': 8, 'Sunday': 6, 'Monday': 6, 'Tuesday': 9, 'Wednesday': 8, 'Thursday': 4, 'imageUrl': 'images/mango_cheesecake_pudding.jpg'
+                'Friday': 7, 'Saturday': 8, 'Sunday': 6, 'Monday': 6, 'Tuesday': 9, 'Wednesday': 8, 'Thursday': 4, 'imageUrl': 'images/mango_cheesecake_pudding.jpg', dozen: true
             },
             'Chocolate cake - كيكة الشوكولاتة': {
                 'Friday': 8, 'Saturday': 9, 'Sunday': 7, 'Monday': 7, 'Tuesday': 10, 'Wednesday': 9, 'Thursday': 5, 'imageUrl': 'images/chocolate_cake.jpg'
@@ -572,7 +571,7 @@ function getAdjustedQuantity(itemName, inventoryOnHand, orderDayOfWeek, sweetIte
     if (sweetItems[itemName].dozen) {
         let threshold = 4; // Default threshold for most dozen items
         // Special case for 'Date with Cheese'
-        if (itemName === 'Date with Cheese - سخان تشيز التمر') {
+        if (itemName === 'Heal cake - كيكة هيل') {
             threshold = 6;
         }
         
