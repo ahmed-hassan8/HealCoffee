@@ -115,13 +115,17 @@ const selectedItems = {
 // Selected sweet items storage
 const selectedSweetItems = {};
 
-// Updated login function to use role-based access
 function login() {
-    const email = document.getElementById('username').value;
+    // Get the email and password from the input fields
+    let email = document.getElementById('username').value;
     const password = document.getElementById('password').value;
+
+    // Remove any spaces and convert to lowercase
+    email = email.trim().toLowerCase();
 
     const users = {
         'a7e988@gmail.com': { role: 'admin', pass: '1234' },
+        'hozyfa121@gmail.com': { role: 'admin', pass: '654321' },
         'a7e989@gmail.com': { role: 'purchase', pass: '1234' },
         'a7a988@gmail.com': { role: 'sweet', pass: '1234' }
     };
