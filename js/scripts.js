@@ -72,7 +72,7 @@ const inventoryItems = {
             'Honey cake - كيكة العسل': {
                 'Friday': 6, 'Saturday': 7, 'Sunday': 5, 'Monday': 5, 'Tuesday': 8, 'Wednesday': 7, 'Thursday': 3, 'imageUrl': 'images/honey_cake.jpg'
             },
-            'Heal cake - كيكة هيل': {
+            'Rose cake - كيكة روز': {
                 'Friday': 5, 'Saturday': 6, 'Sunday': 4, 'Monday': 4, 'Tuesday': 7, 'Wednesday': 6, 'Thursday': 2, 'imageUrl': 'images/heal_cake.jpg', dozen: true
             },
             'Tiramisu - تيراميسو': {
@@ -86,18 +86,6 @@ const inventoryItems = {
             },
             'White chocolate cake - كيكة الشوكولاتة البيضاء': {
                 'Friday': 6, 'Saturday': 7, 'Sunday': 5, 'Monday': 5, 'Tuesday': 8, 'Wednesday': 7, 'Thursday': 3, 'imageUrl': 'images/white_chocolate_cake.jpg'
-            },
-            'Marble cake - كيكة الماربل': {
-                'Friday': 5, 'Saturday': 6, 'Sunday': 4, 'Monday': 4, 'Tuesday': 7, 'Wednesday': 6, 'Thursday': 2, 'imageUrl': 'images/marble_cake.jpg'
-            },
-            'Chocolate cookies - كوكيز الشوكولاتة': {
-                'Friday': 10, 'Saturday': 12, 'Sunday': 8, 'Monday': 8, 'Tuesday': 11, 'Wednesday': 10, 'Thursday': 6, 'imageUrl': 'images/chocolate_cookies.jpg'
-            },
-            'Kunafa cookies - كوكيز الكنافة': {
-                'Friday': 9, 'Saturday': 10, 'Sunday': 7, 'Monday': 7, 'Tuesday': 10, 'Wednesday': 9, 'Thursday': 5, 'imageUrl': 'images/kunafa_cookies.jpg'
-            },
-            'Magic Bar - ماجيك بار': {
-                'Friday': 7, 'Saturday': 8, 'Sunday': 6, 'Monday': 6, 'Tuesday': 9, 'Wednesday': 8, 'Thursday': 4, 'imageUrl': 'images/mic_bar.jpg'
             },
             'Victoria Cake - كيكة فيكتوريا': {
                 'Friday': 6, 'Saturday': 7, 'Sunday': 5, 'Monday': 5, 'Tuesday': 8, 'Wednesday': 7, 'Thursday': 3, 'imageUrl': 'images/victoria_cake.jpg'
