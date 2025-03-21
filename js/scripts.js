@@ -70,25 +70,25 @@ const inventoryItems = {
     const sweetInventory = {
         'Heal': {
             'Honey cake - كيكة العسل': {
-                'Friday': 6, 'Saturday': 7, 'Sunday': 5, 'Monday': 5, 'Tuesday': 8, 'Wednesday': 7, 'Thursday': 3, 'imageUrl': 'images/honey_cake.jpg' ,dozen: true
+                'Friday': 29, 'Saturday': 27, 'Sunday': 23, 'Monday': 30, 'Tuesday': 28, 'Wednesday': 28, 'Thursday': 25, 'imageUrl': 'images/honey_cake.jpg' 
             },
             'Rose cake - كيكة روز': {
-                'Friday': 5, 'Saturday': 6, 'Sunday': 4, 'Monday': 4, 'Tuesday': 7, 'Wednesday': 6, 'Thursday': 2, 'imageUrl': 'images/heal_cake.jpg', dozen: true
+                'Friday': 22, 'Saturday': 21, 'Sunday': 30, 'Monday': 17, 'Tuesday': 17, 'Wednesday': 26, 'Thursday': 22, 'imageUrl': 'images/heal_cake.jpg'
             },
             'Tiramisu - تيراميسو': {
-                'Friday': 4, 'Saturday': 5, 'Sunday': 3, 'Monday': 3, 'Tuesday': 6, 'Wednesday': 5, 'Thursday': 1, 'imageUrl': 'images/tiramisu.jpg', dozen: true
+                'Friday': 42, 'Saturday': 24, 'Sunday': 30, 'Monday': 30, 'Tuesday': 24, 'Wednesday': 26, 'Thursday': 42, 'imageUrl': 'images/tiramisu.jpg',
             },
             'Mango cheesecake pudding - بودينغ تشيز كيك المانجو': {
-                'Friday': 7, 'Saturday': 8, 'Sunday': 6, 'Monday': 6, 'Tuesday': 9, 'Wednesday': 8, 'Thursday': 4, 'imageUrl': 'images/mango_cheesecake_pudding.jpg', dozen: true
+                'Friday': 113, 'Saturday': 89, 'Sunday': 82, 'Monday': 88, 'Tuesday': 97, 'Wednesday': 84, 'Thursday': 88, 'imageUrl': 'images/mango_cheesecake_pudding.jpg'
             },
             'Chocolate cake - كيكة الشوكولاتة': {
-                'Friday': 8, 'Saturday': 9, 'Sunday': 7, 'Monday': 7, 'Tuesday': 10, 'Wednesday': 9, 'Thursday': 5, 'imageUrl': 'images/chocolate_cake.jpg', dozen: true
+                'Friday': 110, 'Saturday': 90, 'Sunday': 102, 'Monday': 108, 'Tuesday': 86, 'Wednesday': 100, 'Thursday': 102, 'imageUrl': 'images/chocolate_cake.jpg'
             },
-            'White chocolate cake - كيكة الشوكولاتة البيضاء': {
-                'Friday': 6, 'Saturday': 7, 'Sunday': 5, 'Monday': 5, 'Tuesday': 8, 'Wednesday': 7, 'Thursday': 3, 'imageUrl': 'images/white_chocolate_cake.jpg', dozen: true
+            'Heal cake - كيكة هيل': {
+                'Friday': 24, 'Saturday': 27, 'Sunday': 26, 'Monday': 22, 'Tuesday': 21, 'Wednesday': 23, 'Thursday': 27, 'imageUrl': 'images/white_chocolate_cake.jpg'
             },
             'Victoria Cake - كيكة فيكتوريا': {
-                'Friday': 6, 'Saturday': 7, 'Sunday': 5, 'Monday': 5, 'Tuesday': 8, 'Wednesday': 7, 'Thursday': 3, 'imageUrl': 'images/victoria_cake.jpg', dozen: true
+                'Friday': 91, 'Saturday': 131, 'Sunday': 153, 'Monday': 124, 'Tuesday': 134, 'Wednesday': 132, 'Thursday': 156, 'imageUrl': 'images/victoria_cake.jpg',
             }
         }
     };
@@ -571,23 +571,12 @@ function getAdjustedQuantity(itemName, inventoryOnHand, orderDayOfWeek, sweetIte
         adjustedQuantity = 0;
     }
 
-    // Check if the item has the dozen property
-    if (sweetItems[itemName].dozen) {
-        let threshold = 4; // Default threshold for most dozen items
-        // Special case for 'Date with Cheese'
-        if (itemName === 'Heal cake - كيكة هيل') {
-            threshold = 6;
-        }
-        
-        if (inventoryOnHand >= threshold) {
-            adjustedQuantity = orderQuantity - 1;
-        } else {
-            adjustedQuantity = orderQuantity;
-        }
-    }
+    // Divide by 20 and round accordingly
+    adjustedQuantity = Math.round(adjustedQuantity / 20);
 
     return adjustedQuantity;
 }
+
 
 function getDayOfWeek(date) {
     const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
