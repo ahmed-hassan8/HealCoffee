@@ -70,28 +70,28 @@ const inventoryItems = {
     const sweetInventory = {
         'Heal': {
             'Honey cake': {
-                'Friday': 29, 'Saturday': 27, 'Sunday': 23, 'Monday': 30, 'Tuesday': 28, 'Wednesday': 28, 'Thursday': 25, 'imageUrl': 'images/honey_cake.jpg' 
+                'Friday': 53, 'Saturday': 45, 'Sunday': 30, 'Monday': 39, 'Tuesday': 46, 'Wednesday': 35, 'Thursday': 42, 'imageUrl': 'images/honey_cake.jpg' 
             },
             'Tiramisu': {
-                'Friday': 42, 'Saturday': 24, 'Sunday': 30, 'Monday': 30, 'Tuesday': 24, 'Wednesday': 26, 'Thursday': 42, 'imageUrl': 'images/tiramisu.jpg',
+                'Friday': 57, 'Saturday': 37, 'Sunday': 37, 'Monday': 38, 'Tuesday': 31, 'Wednesday': 35, 'Thursday': 49, 'imageUrl': 'images/tiramisu.jpg',
             },
             'Mango cheesecake pudding': {
-                'Friday': 113, 'Saturday': 89, 'Sunday': 82, 'Monday': 88, 'Tuesday': 97, 'Wednesday': 84, 'Thursday': 88, 'imageUrl': 'images/mango_cheesecake_pudding.jpg'
+                'Friday': 163, 'Saturday': 127, 'Sunday': 115, 'Monday': 138, 'Tuesday': 126, 'Wednesday': 136, 'Thursday': 143, 'imageUrl': 'images/mango_cheesecake_pudding.jpg'
             },
             'Chocolate cake': {
                 'Friday': 0, 'Saturday': 0, 'Sunday': 0, 'Monday': 0, 'Tuesday': 0, 'Wednesday': 0, 'Thursday': 0, 'imageUrl': 'images/chocolate_cake.jpg'
             },
             'Heal cake': {
-                'Friday': 24, 'Saturday': 27, 'Sunday': 26, 'Monday': 22, 'Tuesday': 21, 'Wednesday': 23, 'Thursday': 27, 'imageUrl': 'images/white_chocolate_cake.jpg'
+                'Friday': 66, 'Saturday': 57, 'Sunday': 51, 'Monday': 59, 'Tuesday': 42, 'Wednesday': 60, 'Thursday': 56, 'imageUrl': 'images/white_chocolate_cake.jpg'
             },
             'Crunchy Chocolate': {
-                'Friday': 24, 'Saturday': 27, 'Sunday': 26, 'Monday': 22, 'Tuesday': 21, 'Wednesday': 23, 'Thursday': 27, 'imageUrl': 'images/Crunchy Chocolate.jpg'
+                'Friday': 134, 'Saturday': 112, 'Sunday': 96, 'Monday': 119, 'Tuesday': 115, 'Wednesday': 94, 'Thursday': 152, 'imageUrl': 'images/Crunchy Chocolate.jpg'
             },
             'Rose cake': {
-                'Friday': 24, 'Saturday': 27, 'Sunday': 26, 'Monday': 22, 'Tuesday': 21, 'Wednesday': 23, 'Thursday': 27, 'imageUrl': 'images/Rose cake.jpg'
+                'Friday': 41, 'Saturday': 32, 'Sunday': 23, 'Monday': 24, 'Tuesday': 20, 'Wednesday': 25, 'Thursday': 20, 'imageUrl': 'images/Rose cake.jpg'
             },
             'Victoria Cake': {
-                'Friday': 91, 'Saturday': 131, 'Sunday': 153, 'Monday': 124, 'Tuesday': 134, 'Wednesday': 132, 'Thursday': 156, 'imageUrl': 'images/victoria_cake.jpg',
+                'Friday': 176, 'Saturday': 165, 'Sunday': 117, 'Monday': 139, 'Tuesday': 170, 'Wednesday': 172, 'Thursday': 165, 'imageUrl': 'images/victoria_cake.jpg',
             }
         }
     };
