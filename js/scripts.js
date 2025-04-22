@@ -69,28 +69,28 @@ const inventoryItems = {
 
     const sweetInventory = {
         'Heal': {
-            'Honey cake - كيكة العسل': {
+            'Honey cake': {
                 'Friday': 29, 'Saturday': 27, 'Sunday': 23, 'Monday': 30, 'Tuesday': 28, 'Wednesday': 28, 'Thursday': 25, 'imageUrl': 'images/honey_cake.jpg' 
             },
-            'Tiramisu - تيراميسو': {
+            'Tiramisu': {
                 'Friday': 42, 'Saturday': 24, 'Sunday': 30, 'Monday': 30, 'Tuesday': 24, 'Wednesday': 26, 'Thursday': 42, 'imageUrl': 'images/tiramisu.jpg',
             },
-            'Mango cheesecake pudding - بودينغ تشيز كيك المانجو': {
+            'Mango cheesecake pudding': {
                 'Friday': 113, 'Saturday': 89, 'Sunday': 82, 'Monday': 88, 'Tuesday': 97, 'Wednesday': 84, 'Thursday': 88, 'imageUrl': 'images/mango_cheesecake_pudding.jpg'
             },
-            'Chocolate cake - كيكة الشوكولاتة': {
+            'Chocolate cake': {
                 'Friday': 0, 'Saturday': 0, 'Sunday': 0, 'Monday': 0, 'Tuesday': 0, 'Wednesday': 0, 'Thursday': 0, 'imageUrl': 'images/chocolate_cake.jpg'
             },
-            'Heal cake - كيكة هيل': {
+            'Heal cake': {
                 'Friday': 24, 'Saturday': 27, 'Sunday': 26, 'Monday': 22, 'Tuesday': 21, 'Wednesday': 23, 'Thursday': 27, 'imageUrl': 'images/white_chocolate_cake.jpg'
             },
-            'Crunchy Chocolate - كرانشي شوكلت': {
+            'Crunchy Chocolate': {
                 'Friday': 24, 'Saturday': 27, 'Sunday': 26, 'Monday': 22, 'Tuesday': 21, 'Wednesday': 23, 'Thursday': 27, 'imageUrl': 'images/Crunchy Chocolate.jpg'
             },
-            'Rose cake - روز كيك': {
+            'Rose cake': {
                 'Friday': 24, 'Saturday': 27, 'Sunday': 26, 'Monday': 22, 'Tuesday': 21, 'Wednesday': 23, 'Thursday': 27, 'imageUrl': 'images/Rose cake.jpg'
             },
-            'Victoria Cake - كيكة فيكتوريا': {
+            'Victoria Cake': {
                 'Friday': 91, 'Saturday': 131, 'Sunday': 153, 'Monday': 124, 'Tuesday': 134, 'Wednesday': 132, 'Thursday': 156, 'imageUrl': 'images/victoria_cake.jpg',
             }
         }
@@ -115,9 +115,8 @@ function login() {
 
     const users = {
         'a7e988@gmail.com': { role: 'admin', pass: '1234' },
-        'hozyfa121@gmail.com': { role: 'admin', pass: '654321' },
-        'a7e989@gmail.com': { role: 'purchase', pass: '1234' },
-        'Yanzkie2902@gmail.com': { role: 'sweet', pass: '123456' }
+        'yanzkie2902@gmail.com': { role: 'sweet', pass: '654321' },
+        'smart.move.egy@gmail.com': { role: 'purchase', pass: '1234' }
     };
 
     if (!users[email] || users[email].pass !== password) {
@@ -139,17 +138,16 @@ function login() {
     // Assign correct sections to the user role
     const role = users[email].role;
     if (role === 'admin') {
-        // Admin can access both tabs, but only show one at a time
-        sections.purchase.style.display = 'block'; // Default to Purchase Order tab
-        sections.sweet.style.display = 'none'; // Hide Sweet Order tab initially
+        sections.purchase.style.display = 'block';
+        sections.sweet.style.display = 'none';
     } else if (role === 'purchase') {
-        sections.purchase.style.display = 'block'; // Show Purchase Order tab
-        sections.sweet.style.display = 'none'; // Hide Sweet Order tab
+        sections.purchase.style.display = 'block';
+        sections.sweet.style.display = 'none';
     } else if (role === 'sweet') {
-        sections.purchase.style.display = 'none'; // Hide Purchase Order tab
-        sections.sweet.style.display = 'block'; // Show Sweet Order tab
+        sections.purchase.style.display = 'none';
+        sections.sweet.style.display = 'block';
     }
-
+    
     // Tab switching logic
     function switchTab(activeTab) {
         Object.entries(sections).forEach(([key, section]) => {
@@ -525,6 +523,8 @@ function submitSweetOrder() {
     const sweetItems = sweetInventory[branch];
     const sweetOrderItemsContainer = document.getElementById('sweetOrderItems');
     const inputs = sweetOrderItemsContainer.querySelectorAll('.quantity-input');
+    const manualRaspberry = document.getElementById('manualRaspberry').value;
+    const manualBlueberry = document.getElementById('manualBlueberry').value;
 
     const creationDate = new Date();
     const creationDayOfWeek = getDayOfWeek(creationDate);
@@ -550,6 +550,19 @@ function submitSweetOrder() {
                 quantity: adjustedQuantity
             };
         }
+        if (manualRaspberry > 0) {
+            selectedSweetItems['Raspberry'] = {
+                name: 'Raspberry',
+                quantity: manualRaspberry
+            };
+        }
+        if (manualBlueberry > 0) {
+            selectedSweetItems['Blueberry'] = {
+                name: 'Blueberry',
+                quantity: manualBlueberry
+            };
+        }
+    
     });
     
 
@@ -626,13 +639,21 @@ function generateSweetOrderPDF(orderDate) {
     for (const itemName in selectedSweetItems) {
         const item = selectedSweetItems[itemName];
         const row = document.createElement('tr');
-        ['name', 'quantity'].forEach(field => {
-            const td = document.createElement('td');
-            td.style.border = '1px solid #000';
-            td.style.padding = '8px';
-            td.innerText = item[field];
-            row.appendChild(td);
-        });
+        
+        // اسم العنصر
+        const nameCell = document.createElement('td');
+        nameCell.innerHTML = `<span dir="rtl">${item.name}</span>`; // دعم اللغة العربية
+        nameCell.style.border = '1px solid #000';
+        nameCell.style.padding = '8px';
+        row.appendChild(nameCell);
+
+        // الكمية
+        const quantityCell = document.createElement('td');
+        quantityCell.innerText = item.quantity;
+        quantityCell.style.border = '1px solid #000';
+        quantityCell.style.padding = '8px';
+        row.appendChild(quantityCell);
+
         table.appendChild(row);
     }
 
