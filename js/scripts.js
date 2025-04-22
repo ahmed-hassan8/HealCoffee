@@ -120,7 +120,7 @@ function login() {
         'a7e988@gmail.com': { role: 'admin', pass: '1234' },
         'hozyfa121@gmail.com': { role: 'admin', pass: '654321' },
         'a7e989@gmail.com': { role: 'purchase', pass: '1234' },
-        'a7a988@gmail.com': { role: 'sweet', pass: '1234' }
+        'Yanzkie2902@gmail.com': { role: 'sweet', pass: '654321' }
     };
 
     if (!users[email] || users[email].pass !== password) {
