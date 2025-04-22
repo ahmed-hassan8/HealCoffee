@@ -86,8 +86,12 @@ const inventoryItems = {
             },
             'Heal cake - كيكة هيل': {
                 'Friday': 24, 'Saturday': 27, 'Sunday': 26, 'Monday': 22, 'Tuesday': 21, 'Wednesday': 23, 'Thursday': 27, 'imageUrl': 'images/white_chocolate_cake.jpg'
+            },
             'Crunchy Chocolate - كرانشي شوكلت': {
                 'Friday': 24, 'Saturday': 27, 'Sunday': 26, 'Monday': 22, 'Tuesday': 21, 'Wednesday': 23, 'Thursday': 27, 'imageUrl': 'images/Crunchy Chocolate.jpg'
+            },
+            'Rose cake - روز كيك': {
+                'Friday': 24, 'Saturday': 27, 'Sunday': 26, 'Monday': 22, 'Tuesday': 21, 'Wednesday': 23, 'Thursday': 27, 'imageUrl': 'images/Rose cake.jpg'
             },
             'Victoria Cake - كيكة فيكتوريا': {
                 'Friday': 91, 'Saturday': 131, 'Sunday': 153, 'Monday': 124, 'Tuesday': 134, 'Wednesday': 132, 'Thursday': 156, 'imageUrl': 'images/victoria_cake.jpg',
