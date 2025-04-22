@@ -72,9 +72,6 @@ const inventoryItems = {
             'Honey cake - كيكة العسل': {
                 'Friday': 29, 'Saturday': 27, 'Sunday': 23, 'Monday': 30, 'Tuesday': 28, 'Wednesday': 28, 'Thursday': 25, 'imageUrl': 'images/honey_cake.jpg' 
             },
-            'Rose cake - كيكة روز': {
-                'Friday': 22, 'Saturday': 21, 'Sunday': 30, 'Monday': 17, 'Tuesday': 17, 'Wednesday': 26, 'Thursday': 22, 'imageUrl': 'images/heal_cake.jpg'
-            },
             'Tiramisu - تيراميسو': {
                 'Friday': 42, 'Saturday': 24, 'Sunday': 30, 'Monday': 30, 'Tuesday': 24, 'Wednesday': 26, 'Thursday': 42, 'imageUrl': 'images/tiramisu.jpg',
             },
