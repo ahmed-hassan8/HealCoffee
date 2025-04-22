@@ -82,7 +82,7 @@ const inventoryItems = {
                 'Friday': 113, 'Saturday': 89, 'Sunday': 82, 'Monday': 88, 'Tuesday': 97, 'Wednesday': 84, 'Thursday': 88, 'imageUrl': 'images/mango_cheesecake_pudding.jpg'
             },
             'Chocolate cake - كيكة الشوكولاتة': {
-                'Friday': 110, 'Saturday': 90, 'Sunday': 102, 'Monday': 108, 'Tuesday': 86, 'Wednesday': 100, 'Thursday': 102, 'imageUrl': 'images/chocolate_cake.jpg'
+                'Friday': 0, 'Saturday': 0, 'Sunday': 0, 'Monday': 0, 'Tuesday': 0, 'Wednesday': 0, 'Thursday': 0, 'imageUrl': 'images/chocolate_cake.jpg'
             },
             'Heal cake - كيكة هيل': {
                 'Friday': 24, 'Saturday': 27, 'Sunday': 26, 'Monday': 22, 'Tuesday': 21, 'Wednesday': 23, 'Thursday': 27, 'imageUrl': 'images/white_chocolate_cake.jpg'
